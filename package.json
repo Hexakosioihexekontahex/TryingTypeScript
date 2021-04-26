@@ -1,0 +1,23 @@
+{
+  "name": "TryingTypeScript",
+  "version": "1.0.0",
+  "description": "TryingTypeScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hexakosioihexekontahex/TryingTypeScript.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hexakosioihexekontahex/TryingTypeScript/issues"
+  },
+  "homepage": "https://github.com/Hexakosioihexekontahex/TryingTypeScript#readme",
+  "devDependencies": {
+    "typescript": "^4.2.4"
+  }
+}
