@@ -58,5 +58,3 @@ console.log(person)
 person.greet()
 person.hasWife = true
 console.log(person['hasWife'])*/
-
-// Number.parseInt('42')
