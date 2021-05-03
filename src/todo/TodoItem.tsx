@@ -19,7 +19,7 @@ const styles = {
 // &nbsp; - это пробел, &times; - кнопка закрытия
 function TodoItem({ todo, index, onCheckBoxChangeListener }) {
     const { removeTodo } = useContext(Context)
-    const classes = []
+    const classes: string[] = []
 
     if (todo.completed) {
         classes.push('done')

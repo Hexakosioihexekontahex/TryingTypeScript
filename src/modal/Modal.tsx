@@ -1,8 +1,9 @@
-import React from "react"
+import React, {useState } from 'react'
 import './Modal.css'
 
-export default class Modal extends React.Component {
-    state = {
+interface State {isOpen: boolean;}
+export default class Modal extends React.Component<{}, State> {
+    state: State = {
         isOpen: false
     }
 

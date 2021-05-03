@@ -1,23 +1,32 @@
-import React, {useEffect, useState} from "react"
+import React, {useEffect, useState} from 'react'
 import TodoList from "./todo/TodoList"
-// import Addtodo from "./todo/Addtodo"
-import Loader from "./Loader"
+// import AddTodo from "./todo/AddTodo"
+import Loader from './Loader'
 import Context from './context'
-import Modal from "./modal/Modal";
+import Modal from "./modal/Modal"
 
-const Addtodo = React.lazy(() => new Promise(resolve => {
-    setTimeout(() => {
-        resolve(import('./todo/Addtodo'))
-    }, 3000)
-}))
+// const AddTodo = React.lazy(() => new Promise(resolve => {
+//     setTimeout(() => {
+//         resolve(import('./todo/AddTodo'))
+//     }, 3000)
+// }))
+
+const AddTodo = React.lazy(() => import('./todo/AddTodo'))
+
+interface TodoModel {
+    id: number,
+    completed: boolean,
+    title: string
+}
 
 function App() {
-    const [todos, setTodos] = React.useState([
-        /*{id: 1, completed: false, title: 'Buy bread'},
+    const emptyTodoArray: TodoModel[] = []
+    const [todos, setTodos] = React.useState(emptyTodoArray/*[
+        {id: 1, completed: false, title: 'Buy bread'},
         {id: 2, completed: true, title: 'Buy milk'},
-        {id: 3, completed: false, title: 'Buy oil'}*/
-    ])
-    const [loading, setloading] = React.useState(true)
+        {id: 3, completed: false, title: 'Buy oil'}
+    ]*/)
+    const [loading, setLoading] = React.useState(true)
 
     useEffect(() => {
         fetch('https://jsonplaceholder.typicode.com/todos?_limit=5')
@@ -25,13 +34,13 @@ function App() {
             .then(todos => {
                 setTimeout(() => {
                     setTodos(todos)
-                    setloading(false)
+                    setLoading(false)
                 }, 2000)
 
             })
     }, [])
 
-    function toggleTodo(id) {
+    function toggleTodo(id: number) {
         setTodos(
             todos.map(it => {
                 if (it.id === id) {
@@ -42,11 +51,11 @@ function App() {
         )
     }
 
-    function removeTodo(id) {
+    function removeTodo(id: number) {
         setTodos(todos.filter(todo => todo.id !== id))
     }
 
-    function addTodo(title) {
+    function addTodo(title: string) {
         setTodos(todos.concat([
             {
                 title,
@@ -63,7 +72,7 @@ function App() {
                 <Modal />
 
                 <React.Suspense fallback={<p>Loading...</p>}>
-                    <Addtodo onCreate={addTodo}/>
+                    <AddTodo onCreate={addTodo}/>
                 </React.Suspense>
 
                 {loading && <Loader/>}

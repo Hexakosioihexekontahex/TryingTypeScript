@@ -14,7 +14,7 @@ function TodoList(props) {
     return (
         <ul style={styles.ul}>
             { props.todos.map((todo, idx) => {
-                return <TodoItem todo={todo} key={todo.id} index={idx} onCheckBoxChangeListener={props.onToggle}/>
+                return <TodoItem todo={todo} index={idx} onCheckBoxChangeListener={props.onToggle} />
             }) }
         </ul>
     )

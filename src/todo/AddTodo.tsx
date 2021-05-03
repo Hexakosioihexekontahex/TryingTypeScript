@@ -14,7 +14,7 @@ function useInputValue(defaultValue = '') {
     }
 }
 
-function Addtodo({ onCreate }) {
+function AddTodo({ onCreate }) {
     const input = useInputValue('')
 
     function submitHandler(event) {
@@ -35,8 +35,8 @@ function Addtodo({ onCreate }) {
     )
 }
 
-Addtodo.propTypes = {
+AddTodo.propTypes = {
     onCreate: PropTypes.func.isRequired
 }
 
-export default Addtodo
+export default AddTodo
